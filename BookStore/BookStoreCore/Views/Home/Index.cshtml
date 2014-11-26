@@ -1,0 +1,20 @@
+﻿@model List<BookStore.Models.Book>
+@{
+    ViewBag.Title = "Book Store";
+}
+<div id="promotion">
+</div>
+
+<h3>Welcome</h3>
+
+<ul id="book-list">
+    @foreach (var book in Model)
+    {
+        <li><a href="@Url.Action("Details", "Store",
+                new { id = book.BookId })">
+
+            <img alt="@book.Title" src="@book.BookArtUrl" />
+            <span>@book.Title</span> </a>
+        </li>
+    }
+</ul>

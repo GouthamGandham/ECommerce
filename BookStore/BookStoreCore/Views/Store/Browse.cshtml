@@ -1,0 +1,21 @@
+﻿@model BookStore.Models.Genre
+ 
+@{
+    ViewBag.Title = "Browse Albums";
+}
+ 
+<div class="genre">
+    <h3><em>@Model.Name</em> Books</h3>
+ 
+    <ul id="book-list">
+        @foreach (var book in Model.Book)
+        {
+            <li>
+                <a href="@Url.Action("Details", new { id = book.BookId })">
+                    <img alt="@book.Title" src="@book.BookArtUrl" />
+                    <span>@book.Title</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
